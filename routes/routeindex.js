@@ -4,17 +4,19 @@ const router = express.Router();
 //const Task = require('../model/task');
 const Post = require('../model/post');
 
+//Pagina principal
 router.get('/', async function(req,res){
   let postes = await Post.find()
   console.log(postes)
   res.render('index', {postes})
 });
 
-router.get('/newPost', async (req,res) =>{
+//Reconocimientos
+router.get('/Reconocimientos', async (req,res) =>{
   res.render('newPost');
 });
 
-router.post('/newPost', async (req,res) =>{
+router.post('/Reconocimientos', async (req,res) =>{
   let post = new Post(req.body)
   console.log(post)
   await post.save()
@@ -48,5 +50,9 @@ router.post('/delete/:id',   async(req,res) =>{
   res.redirect('/')
 })
 
+//login
+router.get('/login', async (req,res) =>{
+  res.render('login');
+});
 
 module.exports = router;
