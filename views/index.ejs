@@ -1,0 +1,37 @@
+<%- include ("./templates/_header") %>
+
+
+
+<div class="container">
+  <a href ="/newPost"><button type="button" class="btn btn-primary">Create New Post</button></a>
+</div>
+
+<main role="main" class="container">
+  <div class="row">
+    <div class="col-md-8 blog-main"> 
+
+      <% if(postes.length == 0) { %>
+        
+        <h2>There are no Posts</h2>
+      <% } else { for(let i = 0; i<postes.length; i++) { %>
+
+  <div class="blog-post">
+    <h2 class="blog-post-title"><strong> <%= postes[i].title %> </strong></h2>
+    <p class="blog-post-meta"><%= postes[i].post_date.toDateString() %> by <a href="#"><%= postes[i].author %></a>    </p>
+    <p> <%= postes[i].post_data %></p>
+    <a href="/delete/<%= postes[i]._id %>" class="btn btn-danger">Delete</a>
+    <a href="/edit/<%= postes[i]._id %>" class="btn btn-info">Edit</a>
+  </div>
+
+  
+  <% }} %>
+
+
+    </div>
+  </div>
+</main>
+
+
+
+
+<%- include ("./templates/_footer") %>
