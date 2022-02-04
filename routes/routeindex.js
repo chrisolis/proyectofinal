@@ -13,7 +13,7 @@ router.get('/', async function(req,res){
 
 //Reconocimientos
 router.get('/Reconocimientos', async (req,res) =>{
-  res.render('newPost');
+  res.render('rewards');
 });
 
 router.post('/Reconocimientos', async (req,res) =>{
